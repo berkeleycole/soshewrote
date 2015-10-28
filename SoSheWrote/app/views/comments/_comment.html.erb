@@ -1,0 +1,9 @@
+<% @comments.each do |comment| %>
+<div class="main-text-container">
+	<div class="entry-title"><%= comment.title %></div>
+	<div class="entry-date">Posted: <%= comment.created_at.strftime('%a. %B %d, %Y') %>  </div>
+	<div class="entry-date"> By: <%= comment.author %></div>
+	<p class="main-content"><%= comment.content %></p>
+</div>
+<% end %>
+<br>

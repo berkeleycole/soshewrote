@@ -1,0 +1,15 @@
+<li class="article-summary">
+	<div class="main-text-container">
+		<div class="entry-title"><%= link_to post.title, post_path(post.id) %></div>
+		<% if post.published %>
+			<div class="entry-date">Posted On: <%= post.published_at.strftime('%a. %B %d, %Y')  %> </div>
+		<% end %>
+		<div class="entry-date"><%= post.comments.size %> Comments</div>
+		<p class="main-content"><%= raw post.content.truncate(500) %></p>
+		<ul class="unstyled">
+			<% post.tags.each do |tag| %>
+				<li class="display-tag"><%= tag.name %></li>
+			<% end %>
+		</ul>
+	</div>
+<li>

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <div>Title:</div>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= raw @article.content %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @article.category.name if @article.category.present? %>
+</p>
+
+<p>
+	<strong>Tags:</strong>
+	<% @article.tags.each do |tag| %>
+		<%= tag.name %>
+	<% end %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @article.published %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+
+<br>
+
+<p>
+	<strong>Comments:</strong>
+</p>
+
+	<% @article.comments.all.each do |comment| %>
+	
+	<div>Title: <%= comment.title %></div>
+	<div>Author: <%= comment.author %></div>
+	<div>Content: <%= comment.content %></div>
+  <div><%= link_to 'Show', article_comments_path(comment) %></div>
+  <div><%= link_to 'Destroy', article_comments_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+<br>
+<% end %>

@@ -1,0 +1,17 @@
+<div class="contain-to-grid sticky">
+	<nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: all">
+		<ul class="title-area">
+			<li class="name"><h1><a href="/">So.She.Wrote</a></h1></li>
+		</ul>
+		<section class="top-bar-section">
+			<!-- Right Nav Section -->
+			<ul class="right">
+				<li class="option parent-link-creative"><%= link_to'The Creative', posts_path(:creative) %></li>
+				<li class="divider"></li>
+				<li class="option parent-link-code"><%= link_to'The Code', posts_path(:code) %></li>
+				<li class="divider"></li>
+				<li class="option parent-link-adventure"><%= link_to'Bio', bio_path %></li>
+			</ul>
+		</section>
+	</nav>
+</div>

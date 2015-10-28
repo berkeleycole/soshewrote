@@ -1,0 +1,20 @@
+<div class="contain-to-grid ">
+	<div class="custom-bar sticky">
+		<ul class="unstyled horizontal-list">
+			<% if @tags %>
+			<% @tags.each do |tag| %>
+				<li class="custom-bar-items"><%= link_to tag.name.downcase, posts_path(@category.name, tag.name), {:style=>'color: #fff;'}%></li>
+			<% end %>
+			<li class="custom-bar-items"></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+
+<% if @posts.count > 0 %>
+	<ul class="unstyled">
+		<% @posts.each do |post| %>
+			<%= render 'publics/post', post: post %>
+		<% end %>
+	</ul>
+<% end %>

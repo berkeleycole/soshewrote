@@ -1,0 +1,35 @@
+<%= form_for(@article, html: {multipart: true}) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "New Article Title" %><br>
+    <%= f.text_field :title %>
+  </div>
+	<div class="field">
+		<%= f.label :content%>
+		<%= tinymce %>
+		<%= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 100 %>
+	</div>
+		
+		<div class="field">
+			<%= f.label :category %>
+			<%= f.collection_select(:category_id, Category.all, :id, :name, {multiple: false}) %>
+		</div>
+		<div class="field">
+			<%= f.check_box :published %>
+			<%= f.label :published %>
+		</div>
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+<% end %>

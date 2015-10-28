@@ -1,0 +1,8 @@
+<%= f.hidden_field :article_tags, value: "#{@article.tags}" %>
+<% count = 1 %>
+	<div class="field">
+		<%= f.label :tags %>
+		<%= f.collection_check_boxes(:tags, Tag.all, :id, :name, {:multiple => true}) %>
+		<p>Or add new tag: </p>
+		<%= f.text_field :tags %>
+	</div>

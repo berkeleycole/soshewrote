@@ -1,0 +1,17 @@
+<br>
+<div class="main-text-container">
+	<div class="entry-title"><%= @post.title %></div>
+	<div class="entry-date"><%= @post.published_at %></div>
+	<div class="entry-date"><%= @post.comments.size %> Comments</div>
+	<p class="main-content"><%= raw @post.content %></p>
+</div>
+<br>
+<% if @comments.size > 0 %>
+	<ul class="unstyled">
+			<%= render "comments/comment" %>
+	</ul>
+<% end %>
+<br>
+<div class="main-text-container">
+	<%= render "comments/new" %>
+</div>
